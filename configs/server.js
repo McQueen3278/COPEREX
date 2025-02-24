@@ -7,7 +7,8 @@ import morgan from "morgan"
 import { dbConnection } from "./mongo.js"
 import apiLimiter from "../src/middlewares/rate-limit-validator.js"
 import { swaggerDocs, swaggerUI } from "./documentacion.js"
-
+import createAdminUser from "../src/auth/auth.controller.js"
+import authRoutes from "../src/auth/auth.routes.js"
 
 const middlewares = (app) => {
     app.use(express.urlencoded({ extended: true }));
@@ -33,6 +34,7 @@ const middlewares = (app) => {
 }
 
 const routes = (app) => {
+    app.use("/interfer/v1/auth", authRoutes)
     app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 }
 
@@ -48,6 +50,7 @@ const conectarDB = async () =>{
 export const initServer = () => {
     const app = express()
     try{
+        createAdminUser()
         middlewares(app)
         conectarDB()
         routes(app)
