@@ -19,3 +19,8 @@ export const getCompaniesValidator = [
     validateJWT,
     hasRoles('ADMIN_ROLE')
 ]
+
+export const getReportValidator = [
+    validateJWT,
+    hasRoles('ADMIN_ROLE')
+]
