@@ -1,4 +1,19 @@
 import Company from "./company.model.js"
+import ExcelJS from "exceljs";
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+const carpetReport = path.join(__dirname, "../../report");
+
+if (!fs.existsSync(carpetReport)) {
+    fs.mkdirSync(carpetReport, { recursive: true });
+}
+
 
 export const registerCompany = async (req, res) => {
     try{
@@ -45,8 +60,6 @@ export const getCompanies = async (req, res) => {
             }
         }
 
-        console.log("Consulta enviada a MongoDB:", query); 
-
         let companies = await Company.find(query).sort({ trajectory: -1 });
 
         if (order === 'A-Z') {
@@ -69,6 +82,53 @@ export const getCompanies = async (req, res) => {
         res.status(500).json({
             success: false,
             message: "Error al obtener las empresas",
+            error: err.message
+        });
+    }
+};
+
+export const getReport = async (req, res) => {
+    try {
+        const companies = await Company.find();
+
+        const workbook = new ExcelJS.Workbook();
+        const worksheet = workbook.addWorksheet("Empresas");
+
+        worksheet.columns = [
+            { header: "ID", key: "_id", width: 30 },
+            { header: "Nombre", key: "name", width: 30 },
+            { header: "Impacto", key: "impact", width: 15 },
+            { header: "Trayectoria", key: "trajectory", width: 20 },
+            { header: "Categoría", key: "category", width: 20 },
+            { header: "Estado", key: "status", width: 15 }
+        ];
+
+        companies.forEach(company => {
+            worksheet.addRow({
+                _id: company._id,
+                name: company.name,
+                impact: company.impact,
+                trajectory: `${company.trajectory} años`,
+                category: company.category,
+                status: company.status ? "Activo" : "Inactivo"
+            });
+        });
+
+        const fileName = `Reporte_Empresas_${Date.now()}.xlsx`;
+        const filePath = path.join(carpetReport, fileName);
+
+        await workbook.xlsx.writeFile(filePath);
+
+        return res.status(200).json({
+            success: true,
+            message: "Reporte generado y guardado con éxito",
+            filePath: `/report/${fileName}` 
+        });
+
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            message: "Error al generar el reporte",
             error: err.message
         });
     }
