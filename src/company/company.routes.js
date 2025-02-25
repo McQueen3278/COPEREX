@@ -1,11 +1,11 @@
 import { Router } from "express";
 import { registerCompany, getCompanies } from "./company.controller";
-import { registerCompanyValidator } from "../middlewares/company-validator";
+import { registerCompanyValidator, getCompaniesValidator } from "../middlewares/company-validator";
 
 const router = Router();
 
 router.post("/registerCompany", registerCompanyValidator, registerCompany);
 
-router.post("/getCompanies", getCompanies)
+router.post("/getCompanies",getCompaniesValidator,  getCompanies)
 
 export default router;
