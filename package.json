@@ -20,6 +20,7 @@
   "homepage": "https://github.com/McQueen3278/COPEREX#readme",
   "dependencies": {
     "argon2": "^0.41.1",
+    "coperex": "file:",
     "cors": "^2.8.5",
     "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",
