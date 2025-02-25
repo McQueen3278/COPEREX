@@ -1,7 +1,7 @@
 import { body } from "express-validator";
-import { companyExists } from "../helpers/db-validator";
-import { validarCampos } from "./validar-campos";
-import { handleErrors } from "./handleErrors";
+import { companyExists } from "../helpers/db-validator.js";
+import { validarCampos } from "./validar-campos.js";
+import { handleErrors } from "./handleErrors.js";
 import {validateJWT} from "./validate-jwt.js";
 import {hasRoles} from "./role-validator.js";
 
