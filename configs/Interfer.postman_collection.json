@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "21c90de5-2a7c-4387-ac0e-b081d755444c",
+		"name": "Interfer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "41662644"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3001/interfer/v1/auth/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Register Company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Saul\",\r\n    \"impact\": \"5.5\",\r\n    \"trajectory\": 1.5,\r\n    \"category\": \"Distribuidor\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/interfer/v1/company/registerCompany?=",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"interfer",
+								"v1",
+								"company",
+								"registerCompany"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get company",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMmE4NGYyNWRkMzVhYWJhMjM4OGUiLCJpYXQiOjE3NDA1MjAwMTcsImV4cCI6MTc0MDUyMzYxN30.CoU3AxqhMJ2FQCrla_rteLrlvj150_4t43OCW4wcANw"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/interfer/v1/company/getCompanies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"interfer",
+								"v1",
+								"company",
+								"getCompanies"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "Distribuidor",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "A-Z",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Report",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMmE4NGYyNWRkMzVhYWJhMjM4OGUiLCJpYXQiOjE3NDA1MjAwMTcsImV4cCI6MTc0MDUyMzYxN30.CoU3AxqhMJ2FQCrla_rteLrlvj150_4t43OCW4wcANw"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/interfer/v1/company/getReport"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
