@@ -9,7 +9,7 @@ const companySchema = Schema({
         type: String,
         required: true
     },
-    trayectory: {
+    trajectory: {
         type: Number,
         required: true
     },
