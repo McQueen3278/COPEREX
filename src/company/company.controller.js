@@ -114,7 +114,30 @@ export const updateCompany = async (req, res) => {
 
 export const getReport = async (req, res) => {
     try {
-        const companies = await Company.find();
+        const { orderBy, Order, category, impact, trajectory } = req.query;
+
+        let filterConditions = {};
+
+        if (category) filterConditions.category = category;
+        if (impact) filterConditions.impact = impact;
+        if (trajectory) filterConditions.trajectory = trajectory;
+
+        let companies = await Company.find(filterConditions);
+
+        if (orderBy) {
+            if (!['name', 'impact', 'trajectory'].includes(orderBy)) {
+                return res.status(400).json({
+                    success: false,
+                    message: "Parámetro de ordenación no válido."
+                });
+            }
+            const OrderValue = Order === 'desc' ? -1 : 1;
+            companies = companies.sort((a, b) => {
+                if (a[orderBy] < b[orderBy]) return -OrderValue;
+                if (a[orderBy] > b[orderBy]) return OrderValue;
+                return 0;
+            });
+        }
 
         const workbook = new ExcelJS.Workbook();
         const worksheet = workbook.addWorksheet("Empresas");
