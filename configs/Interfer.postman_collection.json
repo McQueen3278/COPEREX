@@ -23,7 +23,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:3001/interfer/v1/auth/login"
+						"url": "http://localhost:3000/interfer/v1/auth/login"
 					},
 					"response": []
 				}
@@ -35,11 +35,17 @@
 				{
 					"name": "Register Company",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMmE4NGYyNWRkMzVhYWJhMjM4OGUiLCJpYXQiOjE3NDA1OTYyNjksImV4cCI6MTc0MDU5OTg2OX0.fjTj8aFGYLT4Vy3FrXRpEkC_gf7Pzqr-ICGEa6U25a4"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Saul\",\r\n    \"impact\": \"5.5\",\r\n    \"trajectory\": 1.5,\r\n    \"category\": \"Distribuidor\"\r\n}",
+							"raw": "{\r\n    \"name\": \"CMI\",\r\n    \"impact\": \"5.5\",\r\n    \"trajectory\": 100,\r\n    \"category\": \"Alimentos\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -75,7 +81,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMmE4NGYyNWRkMzVhYWJhMjM4OGUiLCJpYXQiOjE3NDA1MjAwMTcsImV4cCI6MTc0MDUyMzYxN30.CoU3AxqhMJ2FQCrla_rteLrlvj150_4t43OCW4wcANw"
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMmE4NGYyNWRkMzVhYWJhMjM4OGUiLCJpYXQiOjE3NDA1OTYyNjksImV4cCI6MTc0MDU5OTg2OX0.fjTj8aFGYLT4Vy3FrXRpEkC_gf7Pzqr-ICGEa6U25a4"
 							}
 						},
 						"method": "GET",
