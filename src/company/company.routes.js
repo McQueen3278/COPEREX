@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { registerCompany, getCompanies, getReport } from "./company.controller.js";
-import { registerCompanyValidator, getCompaniesValidator, getReportValidator } from "../middlewares/company-validator.js";
+import { registerCompany, getCompanies, getReport, updateCompany } from "./company.controller.js";
+import { registerCompanyValidator, getCompaniesValidator, getReportValidator, updateCompanyValidator } from "../middlewares/company-validator.js";
 
 const router = Router();
 
@@ -76,5 +76,7 @@ router.get("/getCompanies", getCompaniesValidator, getCompanies);
  *         description: Error generating report
  */
 router.get("/getReport", getReportValidator, getReport);
+
+router.put("/updateCompany/:id", updateCompanyValidator, updateCompany)
 
 export default router;

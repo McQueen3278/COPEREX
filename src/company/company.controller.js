@@ -46,11 +46,15 @@ export const registerCompany = async (req, res) => {
 
 export const getCompanies = async (req, res) => {
     try {
-        let { filter, order, trajectory } = req.query;
+        let { filter, order, trajectory, impact } = req.query;
         let query = {};
 
         if (filter) {
             query.category = filter;
+        }
+
+        if(impact){
+            query.impact = impact
         }
 
         if (trajectory) {
@@ -86,6 +90,27 @@ export const getCompanies = async (req, res) => {
         });
     }
 };
+
+export const updateCompany = async (req, res) => {
+    try{
+        const { id } = req.params;
+        const data = req.body;
+
+        const company = await Company.findByIdAndUpdate(id, data, {new: true})
+
+        res.status(200).json({
+            success: true,
+            msg: 'Empresa/usuario Actualizado',
+            company,
+        });
+    }catch(err){
+        return res.status(500).json({
+            success: false,
+            message: "Error al actualizar empresa/usuario",
+            error: err.message
+        });
+    } 
+}
 
 export const getReport = async (req, res) => {
     try {
