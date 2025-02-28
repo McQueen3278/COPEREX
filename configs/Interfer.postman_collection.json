@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "21c90de5-2a7c-4387-ac0e-b081d755444c",
+		"_postman_id": "ebcdfd4f-1b79-4731-82d5-27854fb329bc",
 		"name": "Interfer",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "41662644"
+		"_exporter_id": "37604997"
 	},
 	"item": [
 		{
@@ -81,7 +81,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMmE4NGYyNWRkMzVhYWJhMjM4OGUiLCJpYXQiOjE3NDA1OTYyNjksImV4cCI6MTc0MDU5OTg2OX0.fjTj8aFGYLT4Vy3FrXRpEkC_gf7Pzqr-ICGEa6U25a4"
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkNjIzOTI4MjY3Nzg3YjZmZjg3Y2UiLCJpYXQiOjE3NDA3MTkxNTksImV4cCI6MTc0MDcyMjc1OX0.e33sO2UvrDroPmxsn55fy0Ef2885dROvVFHEdI0-L1w"
 							}
 						},
 						"method": "GET",
@@ -109,6 +109,11 @@
 									"key": "order",
 									"value": "A-Z",
 									"disabled": true
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
 								}
 							]
 						}
@@ -121,12 +126,40 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlMmE4NGYyNWRkMzVhYWJhMjM4OGUiLCJpYXQiOjE3NDA1MjAwMTcsImV4cCI6MTc0MDUyMzYxN30.CoU3AxqhMJ2FQCrla_rteLrlvj150_4t43OCW4wcANw"
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JkNjIzOTI4MjY3Nzg3YjZmZjg3Y2UiLCJpYXQiOjE3NDA3MTkxNTksImV4cCI6MTc0MDcyMjc1OX0.e33sO2UvrDroPmxsn55fy0Ef2885dROvVFHEdI0-L1w"
 							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:3000/interfer/v1/company/getReport"
+						"url": {
+							"raw": "http://localhost:3000/interfer/v1/company/getReport?impact=5.00",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"interfer",
+								"v1",
+								"company",
+								"getReport"
+							],
+							"query": [
+								{
+									"key": "impact",
+									"value": "5.00"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Company",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "http://localhost:3000/interfer/v1/company/updateCompany/"
 					},
 					"response": []
 				}

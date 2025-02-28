@@ -58,10 +58,8 @@ export const getCompanies = async (req, res) => {
         }
 
         if (trajectory) {
-            let years = parseInt(trajectory);
-            if (!isNaN(years)) {
-                query.trajectory = { $gte: years };
-            }
+         parseInt(trajectory);
+
         }
 
         let companies = await Company.find(query).sort({ trajectory: -1 });

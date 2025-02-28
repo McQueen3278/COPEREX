@@ -77,6 +77,40 @@ router.get("/getCompanies", getCompaniesValidator, getCompanies);
  */
 router.get("/getReport", getReportValidator, getReport);
 
-router.put("/updateCompany/:id", updateCompanyValidator, updateCompany)
+/**
+ * @swagger
+ * /updateCompany/{id}:
+ *   put:
+ *     summary: Update an existing company
+ *     tags: [Company]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The company ID
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               impact:
+ *                 type: string
+ *               trajectory:
+ *                 type: number
+ *               category:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Company updated successfully
+ *       500:
+ *         description: Error updating company
+ */
+router.put("/updateCompany/:id", updateCompanyValidator, updateCompany);
 
 export default router;
