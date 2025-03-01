@@ -1,0 +1,100 @@
+[{
+  "_id": {
+    "$oid": "67bd625828267787b6ff87d4"
+  },
+  "name": "Abner",
+  "impact": "1.00",
+  "trajectory": 2,
+  "category": "Extranjera",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67bd62c428267787b6ff87d7"
+  },
+  "name": "Bimbo",
+  "impact": "5.00",
+  "trajectory": 100,
+  "category": "Alimentos",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67bd62cd28267787b6ff87da"
+  },
+  "name": "CMI",
+  "impact": "5.00",
+  "trajectory": 190,
+  "category": "Alimentos",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67bd634f28267787b6ff87dd"
+  },
+  "name": "FritoLay",
+  "impact": "5.00",
+  "trajectory": 190,
+  "category": "Alimentos",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c27a0d8ca7073e71b77bba"
+  },
+  "name": "EcoFresh",
+  "impact": "7.2",
+  "trajectory": 150,
+  "category": "Sostenibilidad",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c27a138ca7073e71b77bbe"
+  },
+  "name": "TechNova",
+  "impact": "6.8",
+  "trajectory": 200,
+  "category": "Tecnología",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c27a1a8ca7073e71b77bc2"
+  },
+  "name": "AgroVita",
+  "impact": "4.9",
+  "trajectory": 120,
+  "category": "Agricultura",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c27a208ca7073e71b77bc6"
+  },
+  "name": "MediCore",
+  "impact": "8.1",
+  "trajectory": 180,
+  "category": "Salud",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c27a278ca7073e71b77bca"
+  },
+  "name": "EnerGo",
+  "impact": "5.7",
+  "trajectory": 90,
+  "category": "Energía",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c27a2d8ca7073e71b77bce"
+  },
+  "name": "EduSmart",
+  "impact": "6.3",
+  "trajectory": 130,
+  "category": "Educación",
+  "status": true
+}]
